@@ -45,7 +45,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--primary-color);
+  background-color: #4effba;
   transition: 0.3s;
 }
 .btn-menu__bars:before {
