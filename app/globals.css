@@ -26,6 +26,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4effba;
+  border-radius: 10px;
+}
 
 .btn-menu {
   border: none;
@@ -76,21 +84,4 @@ body {
 }
 .search-container input:not(:placeholder-shown) ~ .search-label {
   top: 0;
-}
-
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-* {
-  scrollbar-width: auto;
-  scrollbar-color: #8f54a0 #ffffff;
-}
-
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 7px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #4effba;
-  border-radius: 10px;
 }

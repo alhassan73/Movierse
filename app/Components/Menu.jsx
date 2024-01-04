@@ -5,7 +5,7 @@ export default function Menu({ type }) {
   const [animate, setAnimation] = useState("-100%");
   const links = [
     { name: "Movies" },
-    { name: "Series" },
+    { name: "TV Shows" },
     { name: "Suggest me" },
   ];
   useEffect(() => {
@@ -34,11 +34,12 @@ export default function Menu({ type }) {
                 }`,
                 transition: `${type === "mobile" ? `${(i + 1) / 2}s` : ""}`,
               }}
-              className={`text-[#4EFFBA] rounded-md px-3 py-2 text-sm font-medium ${
+              className={`text-[#4EFFBA] rounded-md px-3 py-2 text-sm font-medium flex items-center gap-2 ${
                 type === "mobile" ? "block" : ""
               }`}
             >
-              {link.name}
+              {link.name}{" "}
+              {i === 2 ? <i className="fa-solid fa-arrow-right-long"></i> : ""}
             </Link>
           ))}
         </div>
