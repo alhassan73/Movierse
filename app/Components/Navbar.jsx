@@ -17,7 +17,7 @@ export default function Navbar() {
   };
   return (
     <>
-      <nav className="bg-black backdrop-blur-[20px] py-4 inset-x-0 top-0 fixed">
+      <nav className="bg-black backdrop-blur-[20px] py-4 inset-x-0 top-0 fixed z-50">
         <div className="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div
             className={`relative flex h-16 items-center justify-between ${

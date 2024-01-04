@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <Navbar />
         <div
-          className="min-h-screen flex justify-center items-center"
+          className="min-h-screen overflow-hidden pt-80"
           style={{ backgroundImage: `url(${bg.src})`, backgroundSize: "cover" }}
         >
           <div className="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-full">

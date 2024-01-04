@@ -1,31 +1,20 @@
-"use client";
-import { useEffect, useState } from "react";
-export default function Trending() {
-  const [data, setData] = useState([]);
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNzhkYjM5NWE2MTI5NmFiNGE3MWJjZmUzZTAwZTAxNSIsInN1YiI6IjY1MDM4MTAzNjNhYWQyMDBjNDRlODg1MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FHQe6Knsce9-wItLu9t1lYluQL63KVRcID63STYl6Mo",
-    },
-  };
-  const getData = async () => {
-    let res = await fetch(
-      "https://api.themoviedb.org/3/trending/all/day?language=en-US",
-      options
-    );
-    let { results } = await res.json();
-    setData(results);
-  };
-  useEffect(() => {}, [getData()]);
+import Image from "next/image";
+export default function Trending({ data }) {
+  const baseUrl = "https://image.tmdb.org/t/p/w500/";
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-wrap">
         {data.map((item, index) => {
           return (
-            <div key={index}>
-              <h1>{item.title}</h1>
+            <div key={index} className="">
+              <div className="w-4/5 mx-auto">
+                <Image
+                  src={`${baseUrl}${item.poster_path}`}
+                  width={300}
+                  height={300}
+                  className="w-full "
+                />
+              </div>
             </div>
           );
         })}
