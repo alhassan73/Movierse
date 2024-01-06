@@ -1,14 +1,15 @@
 import Image from "next/image";
 export default function Trending({ data }) {
   const baseUrl = "https://image.tmdb.org/t/p/w500/";
+  const Api
   return (
     <>
-      <div className="flex justify-between flex-wrap gap-8 mt-12 mx-auto">
+      <div className="flex  xl:justify-start flex-wrap gap-8 my-12 mx-auto">
         {data?.map((item, index) => {
           return (
             <div
               key={index}
-              className="w-[23%] bg-[#1c463685] p-3 rounded-xl trend relative"
+              className="w-full sm:w-[47%] md:w-[30%] lg:w-[31%] xl:w-[23%] bg-[#1c463685] p-3 rounded-xl trend relative"
             >
               <div className="rate absolute top-4 left-4 z-20 bg-[#1c4636] p-1 rounded-xl">
                 <i className="fa-regular fa-star me-1 text-amber-300"></i>
@@ -28,7 +29,7 @@ export default function Trending({ data }) {
                   }
                 />
               </div>
-              <h2 className="text-center font-bold mt-3 ">
+              <h2 className="text-center font-bold mt-3 md:text-sm lg:text-base">
                 {item.title?.split(" ").slice(0, 4).join(" ") ||
                   item.original_title?.split(" ").slice(0, 4).join(" ") ||
                   item.name?.split(" ").slice(0, 4).join(" ") ||

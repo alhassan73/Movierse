@@ -13,12 +13,12 @@ export default function Searchbar() {
       </div>
       <div className="flex w-full justify-between items-center search-container focus-within:border-[#4effba] border bg-black p-5 rounded-lg shadow-sm relative bg-transparent">
         <button className="border-0 outline-0">
-          <i className="fa-solid fa-magnifying-glass search-icon hover:text-[#4effba] text-white"></i>
+          <i className="fa-solid fa-magnifying-glass search-icon hover:text-[#4effba] text-white "></i>
         </button>
         <input
           type="text"
           placeholder="Ex : Oppenheimer."
-          className="search-input absolute right-0 inset-y-1 border-0 outline-0 left-[10%] bg-black w-[90%] placeholder:text-transparent placeholder:text-[15px]  ps-8  bg-transparent"
+          className="search-input absolute right-0 inset-y-1 border-0  outline-0 left-[10%] bg-black w-[90%] placeholder:text-transparent placeholder:text-[15px]  ps-8  bg-transparent"
           id="searchInput"
         />
         <label

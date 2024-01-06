@@ -1,10 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind variants;
+@import "/node_modules/tailwindcss/base.css";
+@import "/node_modules/tailwindcss/components.css";
+@import "/node_modules/tailwindcss/utilities.css";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
-$primary-color: #4effba;
-root {
+
+:root {
+  --primary-color: #4effba;
+  --transition: 0.3s;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -27,25 +28,28 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
 ::-webkit-scrollbar {
   width: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   border-radius: 10px;
 }
 
 .btn-menu {
   border: none;
-  transition: 0.3s ease;
+  transition: var(--transition) ease;
 }
 .btn-menu:focus {
   outline: none;
 }
+
 .btn-menu__bars {
-  transition: 0.3s;
+  transition: var(--transition);
 }
+
 .btn-menu__bars:before,
 .btn-menu__bars:after {
   content: "";
@@ -54,47 +58,60 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: $primary-color;
-  transition: 0.3s;
+  background-color: var(--primary-color);
+  transition: var(--transition);
 }
+
 .btn-menu__bars:before {
   transform: translate(0, -13px);
 }
+
 .btn-menu__bars:after {
   transform: translate(0, 13px);
 }
+
 .menu-open .btn-menu .btn-menu__bars {
   background-color: transparent;
 }
+
 .menu-open .btn-menu .btn-menu__bars:before {
   transform: rotate(45deg);
 }
+
 .menu-open .btn-menu .btn-menu__bars:after {
   transform: rotate(-45deg);
 }
+
 .search-label,
 .search-icon {
-  transition: 0.3s;
+  transition: var(--transition);
 }
+
 .search-container:focus-within .search-label {
   top: 0;
-  color: $primary-color;
+  color: var(--primary-color);
 }
+
 .search-container:focus-within .search-icon {
-  color: $primary-color !important;
+  color: var(--primary-color) !important;
 }
+
 .search-input::placeholder {
-  transition: 0.3s;
+  transition: var(--transition);
 }
+
 .search-container:focus-within .search-input::placeholder {
   color: #828886 !important;
 }
+
 .search-container input:not(:placeholder-shown) ~ .search-label {
   top: 0;
 }
+
 .trend:hover .image-container .trend-img {
   transform: scale(1.05);
 }
+
 .trend-img {
   transition: transform 0.4s;
 }
