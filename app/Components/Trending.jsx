@@ -1,15 +1,30 @@
 import Image from "next/image";
-export default function Trending({ data }) {
+import Searchbar from "./Searchbar";
+export default function Trending({ data, setSearchQuery, searchQuery }) {
   const baseUrl = "https://image.tmdb.org/t/p/w500/";
-  const Api
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+  const searchTrending = () => {
+    const filteredData = data?.filter((el) => {
+      return (
+        el.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        el.original_title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        el.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        el.original_name?.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    });
+    return filteredData.length > 0 ? filteredData : data;
+  };
   return (
     <>
+      <Searchbar handleSearch={handleSearch} searchTrending={searchTrending} />
       <div className="flex  xl:justify-start flex-wrap gap-8 my-12 mx-auto">
-        {data?.map((item, index) => {
+        {searchTrending()?.map((item, index) => {
           return (
             <div
               key={index}
-              className="w-full sm:w-[47%] md:w-[30%] lg:w-[31%] xl:w-[23%] bg-[#1c463685] p-3 rounded-xl trend relative"
+              className="w-full sm:w-[47%] md:w-[30%] lg:w-[31%] xl:w-[23%] bg-[#1c463685] p-3 rounded-xl trend relative cursor-pointer"
             >
               <div className="rate absolute top-4 left-4 z-20 bg-[#1c4636] p-1 rounded-xl">
                 <i className="fa-regular fa-star me-1 text-amber-300"></i>
@@ -25,7 +40,8 @@ export default function Trending({ data }) {
                     item.title ||
                     item.original_title ||
                     item.name ||
-                    item.original_name
+                    item.original_name ||
+                    "trending"
                   }
                 />
               </div>

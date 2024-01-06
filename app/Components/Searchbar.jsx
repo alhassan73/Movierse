@@ -1,6 +1,5 @@
 import React from "react";
-
-export default function Searchbar() {
+export default function Searchbar({ handleSearch }) {
   return (
     <div className="w-full md:w-3/4 lg:w-1/2   flex flex-col justify-center items-center gap-7 mt-10">
       <div className="text-[#4effba]">
@@ -12,14 +11,15 @@ export default function Searchbar() {
         </p>
       </div>
       <div className="flex w-full justify-between items-center search-container focus-within:border-[#4effba] border bg-black p-5 rounded-lg shadow-sm relative bg-transparent">
-        <button className="border-0 outline-0">
+        <div className="border-0 outline-0">
           <i className="fa-solid fa-magnifying-glass search-icon hover:text-[#4effba] text-white "></i>
-        </button>
+        </div>
         <input
           type="text"
           placeholder="Ex : Oppenheimer."
           className="search-input absolute right-0 inset-y-1 border-0  outline-0 left-[10%] bg-black w-[90%] placeholder:text-transparent placeholder:text-[15px]  ps-8  bg-transparent"
           id="searchInput"
+          onChange={handleSearch}
         />
         <label
           htmlFor="searchInput"

@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Searchbar from "./Components/Searchbar";
 import Trending from "./Components/Trending";
 export default function Home() {
   const [data, setData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const options = {
     method: "GET",
     headers: {
@@ -22,11 +22,15 @@ export default function Home() {
   };
   useEffect(() => {
     getData();
-  }, []);
+  }, [data]);
   return (
     <>
-      <Searchbar />
-      <Trending data={data} />
+      <Trending
+        data={data}
+        setData={setData}
+        setSearchQuery={setSearchQuery}
+        searchQuery={searchQuery}
+      />
     </>
   );
 }
