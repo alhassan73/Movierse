@@ -2,7 +2,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
 import bg from "../public/assets/bg.PNG";
-import 'tailwindcss/tailwind.css';
+import "tailwindcss/tailwind.css";
+import Footer from "./Components/Footer";
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
             {children}
           </div>
         </div>
+        <Footer/>
       </body>
     </html>
   );

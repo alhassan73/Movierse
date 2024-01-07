@@ -17,7 +17,7 @@ export default function Searchbar({ handleSearch }) {
         <input
           type="text"
           placeholder="Ex : Oppenheimer."
-          className="search-input absolute right-0 inset-y-1 border-0  outline-0 left-[10%] bg-black w-[90%] placeholder:text-transparent placeholder:text-[15px]  ps-8  bg-transparent"
+          className="search-input absolute right-0 inset-y-1 border-0  outline-0 left-[10%] bg-black w-[90%] placeholder:text-transparent placeholder:text-[15px]  ps-8   bg-transparent"
           id="searchInput"
           onChange={handleSearch}
         />

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import logo from "../../public/assets/play-button.png";
 import Menu from "./Menu";
-
 export default function Navbar() {
   const [toggler, setToggler] = useState(false);
   const links = [

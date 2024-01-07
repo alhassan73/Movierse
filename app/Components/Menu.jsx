@@ -38,7 +38,7 @@ export default function Menu({ type }) {
                 type === "mobile" ? "block" : ""
               }`}
             >
-              {link.name}{" "}
+              {link.name}
               {i === 2 ? <i className="fa-solid fa-arrow-right-long"></i> : ""}
             </Link>
           ))}
