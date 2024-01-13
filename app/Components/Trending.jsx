@@ -46,8 +46,8 @@ export default function Trending({
       ) : (
         <>
           {!searchTrending().length ? (
-            <div className="flex  xl:justify-start flex-wrap gap-8 my-12 mx-auto">
-              <h3 className="text-[#4effba] text-center w-full text-4xl  py-28 flex justify-center items-center">
+            <div className="flex  min-h-screen my-12 mx-auto">
+              <h3 className="text-[#4effba] text-center w-full text-4xl  py-28  flex justify-center items-center">
                 No Results Found
               </h3>
             </div>
@@ -92,28 +92,29 @@ export default function Trending({
                   );
                 })}
               </div>
+
+              <div className="btn-group flex justify-between font-bold text-black mb-12">
+                <button
+                  className="bg-[#4effba] p-5 rounded-xl"
+                  onClick={() => {
+                    handlePageChange(-1);
+                  }}
+                >
+                  Prev Page
+                </button>
+                <button
+                  className="bg-[#4effba] p-5 rounded-xl"
+                  onClick={() => {
+                    handlePageChange(1);
+                  }}
+                >
+                  Next Page
+                </button>
+              </div>
             </>
           )}
         </>
       )}
-      <div className="btn-group flex justify-between font-bold text-black mb-12">
-        <button
-          className="bg-[#4effba] p-5 rounded-xl"
-          onClick={() => {
-            handlePageChange(-1);
-          }}
-        >
-          Prev Page
-        </button>
-        <button
-          className="bg-[#4effba] p-5 rounded-xl"
-          onClick={() => {
-            handlePageChange(1);
-          }}
-        >
-          Next Page
-        </button>
-      </div>
     </>
   );
 }
