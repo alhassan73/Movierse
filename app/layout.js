@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import bg from "../public/assets/bg.PNG";
 import "tailwindcss/tailwind.css";
 import Footer from "./Components/Footer";
+import DataProviderContext from "./Components/DataProvider/DataProviderContext";
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -26,9 +27,11 @@ export default function RootLayout({ children }) {
           className="min-h-screen overflow-hidden pt-80"
           style={{ backgroundImage: `url(${bg.src})`, backgroundSize: "cover" }}
         >
-          <div className="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-full ">
-            {children}
-          </div>
+          <DataProviderContext>
+            <div className="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 h-full ">
+              {children}
+            </div>
+          </DataProviderContext>
         </div>
         <Footer />
       </body>

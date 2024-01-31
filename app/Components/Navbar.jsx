@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import logo from "../../public/assets/play-button.png";
+import Link from "next/link";
 import Menu from "./Menu";
 export default function Navbar() {
   const [toggler, setToggler] = useState(false);
@@ -41,7 +42,9 @@ export default function Navbar() {
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
               <div className="flex flex-shrink-0 items-center">
-                <Image className="h-10 w-auto" src={logo} alt="Movierse" />
+                <Link href="/">
+                  <Image className="h-10 w-auto" src={logo} alt="Movierse" />
+                </Link>
               </div>
               <Menu type="normal" links={links} />
             </div>

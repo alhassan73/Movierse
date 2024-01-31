@@ -11,7 +11,6 @@ export default function Footer() {
             href="https://github.com/yourusername/projectname"
             className="text-[#4EFFBA]"
           >
-            {" "}
             Github
           </a>
           .

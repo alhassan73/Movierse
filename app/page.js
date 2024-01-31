@@ -1,13 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Trending from "./Components/Trending";
+import { DataContext } from "./Components/DataProvider/DataProviderContext";
 export default function Home() {
+  const { getTrending } = useContext(DataContext);
   const [data, setData] = useState([]);
   const [active, setActive] = useState("All");
   const [category, setCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
-  const [isLoading, setLoader] = useState(false);
+  const [isLoading, setLoader] = useState(true);
 
   const options = {
     method: "GET",
@@ -20,14 +22,9 @@ export default function Home() {
   };
   const getData = async () => {
     setLoader(true);
-    let res = await fetch(
-      `https://api.themoviedb.org/3/trending/${category}/week?language=en-US&page=${page}`,
-      options
-    );
-    let { results } = await res.json();
-
+    let { results } = await getTrending(category, page);
+    setData(results);
     setTimeout(() => {
-      setData(results);
       setLoader(false);
     }, 3000);
   };

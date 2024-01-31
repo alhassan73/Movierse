@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Searchbar from "./Searchbar";
 import Navbills from "./Navbills";
-import Skeleton from "./Skeleton";
+import Loading from "./loading";
 export default function Trending({
   data,
   setSearchQuery,
@@ -42,7 +42,7 @@ export default function Trending({
         active={active}
       />
       {isLoading ? (
-        <Skeleton arr={Array.from({ length: 8 })} />
+        <Loading arr={Array.from({ length: 8 })} />
       ) : (
         <>
           {!searchTrending().length ? (
